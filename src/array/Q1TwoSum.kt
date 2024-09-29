@@ -9,15 +9,15 @@ package array
  *
  * Example 1:
  *
- * Input: nums = [2,7,11,15], target = 9
+ * Input: array = [2,7,11,15], target = 9
  * Output: [0,1]
- * Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+ * Explanation: Because array[0] + array[1] == 9, we return [0, 1].
  */
-fun twoSum(nums: IntArray, target: Int): IntArray {
+fun twoSum(array: IntArray, target: Int): IntArray {
     // First create a HashMap
     val map = HashMap<Int, Int>()
     // Iterate through the array
-    nums.forEachIndexed { index, value ->
+    array.forEachIndexed { index, value ->
         // Check the diff here
         // example diff = 9 -2 = 7
         val diff = target - value
