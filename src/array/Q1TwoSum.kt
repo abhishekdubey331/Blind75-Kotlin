@@ -13,23 +13,19 @@ package array
  * Output: [0,1]
  * Explanation: Because array[0] + array[1] == 9, we return [0, 1].
  */
-fun twoSum(array: IntArray, target: Int): IntArray {
-    // First create a HashMap
-    val map = HashMap<Int, Int>()
-    // Iterate through the array
-    array.forEachIndexed { index, value ->
-        // Check the diff here
-        // example diff = 9 -2 = 7
-        val diff = target - value
-        // Check diff is present or not
-        // example map does not have 7 key on it
-        if (map.containsKey(diff)) {
-            // If it contains, return the value of the key and index of the loop
-            return intArrayOf(map[diff]!!, index)
+fun twoSum(array: IntArray, target: Int): Pair<Int, Int> {
+    val map = mutableMapOf<Int, Int>()
+    for (i in array.indices) {
+        val expectedNum = target - array[i]
+        if (map.containsKey(expectedNum)) {
+            return Pair(map[expectedNum] ?: -1, i)
         }
-        // If diff is not present on the map
-        // Put the value and index on the map
-        map[value] = index
+        map[array[i]] = i
     }
-    return intArrayOf()
+    return Pair(-1, -1)
+}
+
+fun main() {
+    val result = twoSum(intArrayOf(2, 7, 11, 15), 9)
+    println(" ${result.first}  ${result.second}")
 }
