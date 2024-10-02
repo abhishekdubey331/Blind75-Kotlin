@@ -27,5 +27,5 @@ fun twoSum(array: IntArray, target: Int): Pair<Int, Int> {
 
 fun main() {
     val result = twoSum(intArrayOf(2, 7, 11, 15), 9)
-    println(" ${result.first}  ${result.second}")
+    println("The index of the nums for sum are: ${result.first} and ${result.second}")
 }
